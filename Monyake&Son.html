@@ -1,0 +1,118 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monyake and Son</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: white; color: black; scroll-behavior: smooth; }
+        header { background: gold; color: black; padding: 20px; text-align: center; font-family: 'Playfair Display', serif; position: relative; }
+        header img { max-width: 150px; display: block; margin: 0 auto; }
+        
+        .nav-container { 
+            margin-top: 10px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            background: black; 
+            padding: 10px 0;
+        }
+        .nav-container a { 
+            color: gold; 
+            text-decoration: none; 
+            font-weight: bold; 
+            position: relative; 
+            padding: 5px 10px; 
+        }
+        .nav-container a::after { 
+            content: ''; 
+            display: block; 
+            width: 0; 
+            height: 2px; 
+            background: gold; 
+            transition: width 0.3s; 
+        }
+        .nav-container a:hover::after { width: 100%; }
+        
+        section { padding: 40px; text-align: center; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .show { opacity: 1; transform: translateY(0); }
+        .hide { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        
+        h2 { transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; }
+        h2:hover { transform: scale(1.1); color: gold; }
+        
+        ul { list-style: none; padding: 0; }
+        li { padding: 5px; transition: transform 0.3s ease-in-out; }
+        li:hover { transform: scale(1.1); color: gold; }
+        
+        footer { background: black; color: gold; text-align: center; padding: 15px; width: 100%; position: relative; bottom: 0; }
+        @media (max-width: 600px) { footer { padding: 10px; font-size: 14px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" width="55" height="50px" alt="Monyake & Son Logo">
+        <h1>Monyake and Son</h1>
+        <p>Group of Companies</p>
+        <div class="nav-container">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+    <section id="home">
+        <h2>Welcome to Monyake & Son</h2>
+        <p>We provide top-tier solutions across multiple industries.</p>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Led by Director Sello Monyake, our company specializes in Mining, Farming, Water Recycling, Supply, Logistics, Construction, and Engineering.</p>
+    </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul> 
+		<img src="pic1.png" width="150px height="100px" align="left">
+		<img src="pic2.png" width="150px height="100px" align="right">
+            <li>Mining</li>
+            <li>Farming</li>
+            <li>Water Recycling</li>
+            <li>Supply</li>
+            <li>Logistics</li>
+            <li>Construction & Engineering</li>
+        </ul>
+    </ul>
+</section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:monyakesello@icloud.com" style="color: gold;">monyakesello@icloud.com</a></p>
+        <p>Phone: <a href="https://wa.me/26659098599" style="color: gold;">+26659098599</a>, <a href="https://wa.me/26658851395" style="color: gold;">+26658851395</a></p>
+        <p>Address: P.O.Box 1642 Maseru 100</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Monyake and Son. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let sections = document.querySelectorAll("section");
+            let observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        entry.target.classList.remove("hide");
+                    } else {
+                        entry.target.classList.remove("show");
+                        entry.target.classList.add("hide");
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
+
+
